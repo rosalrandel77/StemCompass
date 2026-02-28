@@ -30,28 +30,61 @@ document.addEventListener('click', function(e) {
 
 // Quiz logic
 function gradeQuiz() {
-    const answers = [
-        document.querySelector('input[name="q1"]:checked'),
-        document.querySelector('input[name="q2"]:checked'),
-        document.querySelector('input[name="q3"]:checked'),
-    ];
+    const form = document.getElementById('stemQuiz');
+    const formData = new FormData(form);
 
-    if (answers.some((a) => a === null)) {
-        document.getElementById('result').textContent =
-            'Please answer all questions.';
-        return;
+    // Expect answers for questions 1 through 10
+    const totals = {A: 0, B: 0, C: 0, D: 0};
+
+    for (let i = 1; i <= 10; i++) {
+        const val = formData.get('q' + i);
+        if (!val) {
+            document.getElementById('result').textContent =
+                'Please answer all questions.';
+            return;
+        }
+        if (totals.hasOwnProperty(val)) {
+            totals[val]++;
+        }
     }
 
-    let score = 0;
-    answers.forEach((a) => {
-        if (a.value === 'yes') score += 1;
-    });
+    let maxCount = 0;
+    let winners = [];
+    for (const key in totals) {
+        if (totals[key] > maxCount) {
+            maxCount = totals[key];
+            winners = [key];
+        } else if (totals[key] === maxCount) {
+            winners.push(key);
+        }
+    }
 
-    let message;
-    if (score >= 2) {
-        message = 'You seem to have a strong interest in STEM!';
+    let message = '';
+    if (winners.length > 1) {
+        message =
+            'You have tied interests: ' +
+            winners.join(', ') +
+            '. Explore those fields!';
     } else {
-        message = 'STEM might not be your top choice, but explore what you like!';
+        switch (winners[0]) {
+            case 'A':
+                message =
+                    'Suggested fields: Engineering, IT, Computer Science, Architecture, Pure Sciences';
+                break;
+            case 'B':
+                message =
+                    'Suggested fields: Psychology, Education, Nursing, Law, Social Work';
+                break;
+            case 'C':
+                message =
+                    'Suggested fields: Business Admin, Accountancy, Marketing, Hospitality Management';
+                break;
+            case 'D':
+                message =
+                    'Suggested fields: Fine Arts, Multimedia Arts, Communication, Fashion Design';
+                break;
+        }
     }
+
     document.getElementById('result').textContent = message;
 }

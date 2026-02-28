@@ -138,7 +138,7 @@
 
     <header>
         <div class="header-content">
-            <img src="assets/Logo.jpg" alt="STEM Compass Logo" class="logo" />
+            <img src="assets/logo.jpg" alt="STEM Compass Logo" class="logo" />
             <h1>STEM Compass</h1>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
         </div>
@@ -165,119 +165,88 @@
 <section>
     <div class="filter-buttons">
         <button class="active" onclick="filterCourses('all', this)">🌐 All</button>
-        <button onclick="filterCourses('engineering', this)">🏗️ Engineering</button>
-        <button onclick="filterCourses('it', this)">💻 IT & CS</button>
-        <button onclick="filterCourses('health', this)">🩺 Health</button>
-        <button onclick="filterCourses('design', this)">🎨 Design</button>
+        <button onclick="filterCourses('A', this)">🛠 STEM &amp; Sciences</button>
+        <button onclick="filterCourses('B', this)">🧠 People &amp; Health</button>
+        <button onclick="filterCourses('C', this)">💼 Business &amp; Management</button>
+        <button onclick="filterCourses('D', this)">🎨 Arts &amp; Media</button>
     </div>
 
     <div class="grid" id="courseGrid">
-        <div class="card" data-category="engineering" data-title="Civil Engineering" data-desc="Design and construct buildings, roads, and bridges." data-strand="STEM" data-salary="₱25,000 - ₱45,000" data-skills="Problem-Solving,Analytical Skills" data-color="#0ea5e9">
-            <h3>BS Civil Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #0ea5e9; font-weight: bold;">50%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:50%;background-color:#0ea5e9;"></div></div>
+        <!-- Group A courses -->
+        <div class="card" data-category="A" data-title="Engineering" data-desc="Study of designing and building structures, machines, and systems." data-strand="STEM" data-salary="₱30,000" data-skills="Problem-Solving,Analytical" data-color="#0ea5e9">
+            <h3>Engineering</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱30,000</p>
         </div>
-
-        <div class="card" data-category="it" data-title="Computer Science" data-desc="Programming, algorithms, AI, and databases." data-strand="STEM" data-salary="₱25,000 - ₱60,000" data-skills="Coding,Logic,Research" data-color="#6366f1">
-            <h3>BS Computer Science</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #6366f1; font-weight: bold;">70%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:70%;background-color:#6366f1;"></div></div>
+        <div class="card" data-category="A" data-title="IT" data-desc="Information technology and computing systems." data-strand="STEM" data-salary="₱28,000" data-skills="Coding,Logic" data-color="#6366f1">
+            <h3>Information Technology</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱28,000</p>
         </div>
-
-        <div class="card" data-category="health" data-title="Nursing" data-desc="Prepare for a healthcare career, patient care, and hospital work." data-strand="STEM" data-salary="₱18,000 - ₱35,000" data-skills="Empathy,Biology,Patient Care" data-color="#10b981">
-            <h3>BS Nursing</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #10b981; font-weight: bold;">40%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:40%;background-color:#10b981;"></div></div>
+        <div class="card" data-category="A" data-title="Computer Science" data-desc="Study of computation, algorithms, and software." data-strand="STEM" data-salary="₱30,000" data-skills="Coding,Research" data-color="#6366f1">
+            <h3>Computer Science</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱30,000</p>
         </div>
-        
-        <div class="card" data-category="design" data-title="Architecture" data-desc="Design buildings and urban spaces." data-strand="STEM" data-salary="₱20,000 - ₱45,000" data-skills="Creativity,Math,Drawing" data-color="#f59e0b">
-            <h3>BS Architecture</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #f59e0b; font-weight: bold;">45%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:45%;background-color:#f59e0b;"></div></div>
+        <div class="card" data-category="A" data-title="Architecture" data-desc="Design of buildings and urban environments." data-strand="STEM" data-salary="₱25,000" data-skills="Creativity,Math" data-color="#f59e0b">
+            <h3>Architecture</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱25,000</p>
         </div>
-
-        <div class="card" data-category="engineering" data-title="Mechanical Engineering" data-desc="Design and develop mechanical systems and machines." data-strand="STEM" data-salary="₱24,000 - ₱50,000" data-skills="Problem-Solving,Design,Technical" data-color="#0ea5e9">
-            <h3>BS Mechanical Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #0ea5e9; font-weight: bold;">55%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:55%;background-color:#0ea5e9;"></div></div>
+        <div class="card" data-category="A" data-title="Pure Sciences" data-desc="Fields like physics, chemistry, and biology." data-strand="STEM" data-salary="₱22,000" data-skills="Research,Analysis" data-color="#6366f1">
+            <h3>Pure Sciences</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱22,000</p>
         </div>
-
-        <div class="card" data-category="engineering" data-title="Electrical Engineering" data-desc="Work with electrical systems, power, and electronics." data-strand="STEM" data-salary="₱26,000 - ₱55,000" data-skills="Circuit Design,Problem-Solving,Technical" data-color="#0ea5e9">
-            <h3>BS Electrical Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #0ea5e9; font-weight: bold;">60%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:60%;background-color:#0ea5e9;"></div></div>
+        <!-- Group B courses -->
+        <div class="card" data-category="B" data-title="Psychology" data-desc="Study of the mind and behavior." data-strand="STEM" data-salary="₱20,000" data-skills="Empathy,Analysis" data-color="#10b981">
+            <h3>Psychology</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱20,000</p>
         </div>
-
-        <div class="card" data-category="it" data-title="Information Technology" data-desc="Manage IT systems, networks, and infrastructure." data-strand="STEM" data-salary="₱22,000 - ₱52,000" data-skills="Networking,System Admin,Security" data-color="#6366f1">
-            <h3>BS Information Technology</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #6366f1; font-weight: bold;">65%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:65%;background-color:#6366f1;"></div></div>
+        <div class="card" data-category="B" data-title="Education" data-desc="Training to become a teacher or educator." data-strand="STEM" data-salary="₱18,000" data-skills="Communication,Patience" data-color="#10b981">
+            <h3>Education</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱18,000</p>
         </div>
-
-        <div class="card" data-category="it" data-title="Data Science" data-desc="Analyze and interpret complex data for insights." data-strand="STEM" data-salary="₱28,000 - ₱65,000" data-skills="Analytics,Python,Statistics" data-color="#6366f1">
-            <h3>BS Data Science</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #6366f1; font-weight: bold;">72%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:72%;background-color:#6366f1;"></div></div>
+        <div class="card" data-category="B" data-title="Nursing" data-desc="Healthcare career focused on patient care." data-strand="STEM" data-salary="₱25,000" data-skills="Empathy,Biology" data-color="#10b981">
+            <h3>Nursing</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱25,000</p>
         </div>
-
-        <div class="card" data-category="health" data-title="Pharmacy" data-desc="Prepare medicines and advise on drug treatments." data-strand="STEM" data-salary="₱20,000 - ₱42,000" data-skills="Chemistry,Patient Care,Research" data-color="#10b981">
-            <h3>BS Pharmacy</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #10b981; font-weight: bold;">42%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:42%;background-color:#10b981;"></div></div>
+        <div class="card" data-category="B" data-title="Law" data-desc="Study of legal systems and justice." data-strand="STEM" data-salary="₱28,000" data-skills="Critical Thinking,Research" data-color="#0ea5e9">
+            <h3>Law</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱28,000</p>
         </div>
-
-        <div class="card" data-category="health" data-title="Medicine" data-desc="Provide medical care and treatment to patients." data-strand="STEM" data-salary="₱35,000 - ₱80,000" data-skills="Diagnosis,Patient Care,Research" data-color="#10b981">
-            <h3>Doctor of Medicine (MD)</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #10b981; font-weight: bold;">85%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:85%;background-color:#10b981;"></div></div>
+        <div class="card" data-category="B" data-title="Social Work" data-desc="Supporting individuals and communities." data-strand="STEM" data-salary="₱18,000" data-skills="Empathy,Advocacy" data-color="#10b981">
+            <h3>Social Work</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱18,000</p>
         </div>
-
-        <div class="card" data-category="engineering" data-title="Chemical Engineering" data-desc="Design processes for chemical production and manufacturing." data-strand="STEM" data-salary="₱24,000 - ₱48,000" data-skills="Chemistry,Process Design,Technical" data-color="#0ea5e9">
-            <h3>BS Chemical Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #0ea5e9; font-weight: bold;">52%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:52%;background-color:#0ea5e9;"></div></div>
+        <!-- Group C courses -->
+        <div class="card" data-category="C" data-title="Business Admin" data-desc="Management of business operations." data-strand="STEM" data-salary="₱26,000" data-skills="Leadership,Strategy" data-color="#f59e0b">
+            <h3>Business Administration</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱26,000</p>
         </div>
-
-        <div class="card" data-category="engineering" data-title="Civil Engineering" data-desc="Plan and manage construction of water and utility systems." data-strand="STEM" data-salary="₱23,000 - ₱46,000" data-skills="Analysis,Planning,Technical" data-color="#0ea5e9">
-            <h3>BS Civil Engineering Tech</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #0ea5e9; font-weight: bold;">48%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:48%;background-color:#0ea5e9;"></div></div>
+        <div class="card" data-category="C" data-title="Accountancy" data-desc="Study of financial record keeping." data-strand="STEM" data-salary="₱24,000" data-skills="Detail,Math" data-color="#f59e0b">
+            <h3>Accountancy</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱24,000</p>
         </div>
-
-        <div class="card" data-category="engineering" data-title="Electronics Engineering" data-desc="Design and develop electronic devices and systems." data-strand="STEM" data-salary="₱23,000 - ₱50,000" data-skills="Circuit Design,Programming,Testing" data-color="#0ea5e9">
-            <h3>BS Electronics Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #0ea5e9; font-weight: bold;">58%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:58%;background-color:#0ea5e9;"></div></div>
+        <div class="card" data-category="C" data-title="Marketing" data-desc="Promotion and selling of products." data-strand="STEM" data-salary="₱23,000" data-skills="Communication,Creativity" data-color="#f59e0b">
+            <h3>Marketing</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱23,000</p>
         </div>
-
-        <div class="card" data-category="it" data-title="Software Engineering" data-desc="Develop and maintain software applications." data-strand="STEM" data-salary="₱26,000 - ₱62,000" data-skills="Coding,Software Design,Testing" data-color="#6366f1">
-            <h3>BS Software Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #6366f1; font-weight: bold;">68%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:68%;background-color:#6366f1;"></div></div>
+        <div class="card" data-category="C" data-title="Hospitality Management" data-desc="Managing hotels and service industries." data-strand="STEM" data-salary="₱20,000" data-skills="Customer Service,Organization" data-color="#f59e0b">
+            <h3>Hospitality Management</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱20,000</p>
         </div>
-
-        <div class="card" data-category="health" data-title="Psychology" data-desc="Study human behavior and mental health." data-strand="STEM" data-salary="₱18,000 - ₱40,000" data-skills="Research,Analysis,Communication" data-color="#10b981">
-            <h3>BS Psychology</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #10b981; font-weight: bold;">38%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:38%;background-color:#10b981;"></div></div>
+        <!-- Group D courses -->
+        <div class="card" data-category="D" data-title="Fine Arts" data-desc="Visual and performing arts." data-strand="STEM" data-salary="₱18,000" data-skills="Creativity,Expression" data-color="#f59e0b">
+            <h3>Fine Arts</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱18,000</p>
         </div>
-
-        <div class="card" data-category="engineering" data-title="Environmental Engineering" data-desc="Address environmental challenges and sustainability." data-strand="STEM" data-salary="₱22,000 - ₱45,000" data-skills="Problem-Solving,Analysis,Design" data-color="#0ea5e9">
-            <h3>BS Environmental Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #0ea5e9; font-weight: bold;">50%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:50%;background-color:#0ea5e9;"></div></div>
+        <div class="card" data-category="D" data-title="Multimedia Arts" data-desc="Digital media and design." data-strand="STEM" data-salary="₱22,000" data-skills="Design,Technology" data-color="#f59e0b">
+            <h3>Multimedia Arts</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱22,000</p>
         </div>
-
-        <div class="card" data-category="design" data-title="Industrial Design" data-desc="Create functional and aesthetic product designs." data-strand="STEM" data-salary="₱20,000 - ₱43,000" data-skills="Creativity,CAD,Problem-Solving" data-color="#f59e0b">
-            <h3>BS Industrial Design</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #f59e0b; font-weight: bold;">46%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:46%;background-color:#f59e0b;"></div></div>
+        <div class="card" data-category="D" data-title="Communication" data-desc="Study of media and messaging." data-strand="STEM" data-salary="₱21,000" data-skills="Writing,Speaking" data-color="#f59e0b">
+            <h3>Communication</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱21,000</p>
         </div>
-
-        <div class="card" data-category="it" data-title="Cybersecurity" data-desc="Protect systems and networks from cyber threats." data-strand="STEM" data-salary="₱27,000 - ₱58,000" data-skills="Security,Networking,Analysis" data-color="#6366f1">
-            <h3>BS Cybersecurity</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Salary Potential: <span style="color: #6366f1; font-weight: bold;">66%</span></p>
-            <div class="salary-bar-container"><div class="salary-bar" style="width:66%;background-color:#6366f1;"></div></div>
+        <div class="card" data-category="D" data-title="Fashion Design" data-desc="Creating clothing and accessories." data-strand="STEM" data-salary="₱19,000" data-skills="Creativity,Trend Awareness" data-color="#f59e0b">
+            <h3>Fashion Design</h3>
+            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱19,000</p>
         </div>
         </div>
 </section>

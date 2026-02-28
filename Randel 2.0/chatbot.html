@@ -190,7 +190,7 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="assets/Logo.jpg" alt="STEM Compass Logo" class="logo" />
+            <img src="assets/logo.jpg" alt="STEM Compass Logo" class="logo" />
             <h1>STEM Compass</h1>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
         </div>
@@ -280,8 +280,8 @@
                 keywords: ['nurse', 'nursing', 'healthcare', 'medical']
             },
             'college': {
-                answer: 'Visit our Courses page to explore various STEM college programs. Each course includes salary information, required skills, and career opportunities to help you make an informed decision.',
-                keywords: ['college', 'university', 'major', 'degree', 'program']
+                answer: 'Visit our Courses page to explore various college programs. Courses are grouped by interest: STEM & Sciences (Engineering, IT, Computer Science, Architecture, Pure Sciences), People & Health (Psychology, Education, Nursing, Law, Social Work), Business & Management (Business Admin, Accountancy, Marketing, Hospitality Management), and Arts & Media (Fine Arts, Multimedia Arts, Communication, Fashion Design). Each entry shows average salary and skills.',
+                keywords: ['college', 'university', 'major', 'degree', 'program', 'courses', 'group']
             },
             'quiz': {
                 answer: 'Take our STEM Interest Quiz to assess your fit for STEM fields. The quiz asks about your problem-solving skills, curiosity, and preferences to help guide your decision.',
@@ -340,7 +340,7 @@
             // Default response if no match
             return {
                 type: 'bot',
-                text: 'Please specify what you need so I can help. You can ask using keywords such as "STEM", "fields", "careers", "engineering", "computer science", "biology", "chemistry", "physics", "data science", "nursing", "college", "quiz", "salary", or "skills". For example: "What is STEM?", "Tell me about STEM careers", or "What skills are needed for engineering?"'
+                text: 'Please specify what you need so I can help. You can ask using keywords such as "STEM", "fields", "careers", "engineering", "computer science", "biology", "chemistry", "physics", "data science", "nursing", "college", "quiz", "salary", or "skills"."'
             };
         }
 

@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="assets/Logo.jpg" alt="STEM Compass Logo" class="logo" />
+            <img src="assets/logo.jpg" alt="STEM Compass Logo" class="logo" />
             <h1>STEM Compass</h1>
             <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
         </div>
@@ -27,21 +27,79 @@
             <h2>Do You Really Want STEM?</h2>
             <form id="stemQuiz">
                 <div class="question">
-                    <label>1. Do you enjoy solving puzzles or problems?</label><br />
-                    <input type="radio" name="q1" value="yes" /> Yes<br />
-                    <input type="radio" name="q1" value="no" /> No<br />
+                    <label>1. What do you enjoy solving most?</label><br />
+                    <input type="radio" name="q1" value="A" /> A. A difficult math equation.<br />
+                    <input type="radio" name="q1" value="B" /> B. A misunderstanding between friends.<br />
+                    <input type="radio" name="q1" value="C" /> C. A way to save or make more money.<br />
+                    <input type="radio" name="q1" value="D" /> D. A way to make a room look better.<br />
                 </div>
 
                 <div class="question">
-                    <label>2. Are you curious about how things work?</label><br />
-                    <input type="radio" name="q2" value="yes" /> Yes<br />
-                    <input type="radio" name="q2" value="no" /> No<br />
+                    <label>2. When you look at a bridge, what do you think about?</label><br />
+                    <input type="radio" name="q2" value="A" /> A. The physics and engineering that keep it standing.<br />
+                    <input type="radio" name="q2" value="B" /> B. The historical events that happened there.<br />
+                    <input type="radio" name="q2" value="C" /> C. How much it cost to build and its impact on the local economy.<br />
+                    <input type="radio" name="q2" value="D" /> D. How beautiful it looks against the sunset.<br />
                 </div>
 
                 <div class="question">
-                    <label>3. Would you rather experiment than memorize?</label><br />
-                    <input type="radio" name="q3" value="yes" /> Yes<br />
-                    <input type="radio" name="q3" value="no" /> No<br />
+                    <label>3. What is your ultimate career goal?</label><br />
+                    <input type="radio" name="q3" value="A" /> A. To invent or discover something.<br />
+                    <input type="radio" name="q3" value="B" /> B. To help or advocate for people.<br />
+                    <input type="radio" name="q3" value="C" /> C. To lead a team or a company.<br />
+                    <input type="radio" name="q3" value="D" /> D. To inspire or entertain others.<br />
+                </div>
+
+                <div class="question">
+                    <label>4. Choose a favorite way to communicate:</label><br />
+                    <input type="radio" name="q4" value="A" /> A. Drawing a picture or taking a photo.<br />
+                    <input type="radio" name="q4" value="B" /> B. Giving a clear, persuasive speech.<br />
+                    <input type="radio" name="q4" value="C" /> C. Writing a thoughtful essay.<br />
+                    <input type="radio" name="q4" value="D" /> D. Using data, charts, and facts.<br />
+                </div>
+
+                <div class="question">
+                    <label>5. What do you notice first when you enter a store?</label><br />
+                    <input type="radio" name="q5" value="A" /> A. The colors, lighting, and layout.<br />
+                    <input type="radio" name="q5" value="B" /> B. How much the items cost.<br />
+                    <input type="radio" name="q5" value="C" /> C. How the employees treat the customers.<br />
+                    <input type="radio" name="q5" value="D" /> D. The technology they use at checkout.<br />
+                </div>
+
+                <div class="question">
+                    <label>6. What do you use the most?</label><br />
+                    <input type="radio" name="q6" value="A" /> A. Logic and data.<br />
+                    <input type="radio" name="q6" value="B" /> B. Words and empathy.<br />
+                    <input type="radio" name="q6" value="C" /> C. Strategy and leadership.<br />
+                    <input type="radio" name="q6" value="D" /> D. Color and imagination.<br />
+                </div>
+
+                <div class="question">
+                    <label>7. Choose your own definition of "Work Mode":</label><br />
+                    <input type="radio" name="q7" value="A" /> A. Deep focus on a single technical problem.<br />
+                    <input type="radio" name="q7" value="B" /> B. Constant interaction with different people.<br />
+                    <input type="radio" name="q7" value="C" /> C. Fast-paced decision making and leadership.<br />
+                    <input type="radio" name="q7" value="D" /> D. Freedom to experiment with new visuals.<br />
+                </div>
+
+                <div class="question">
+                    <label>8. How do you handle your schedule?</label><br />
+                    <input type="radio" name="q8" value="A" /> A. I like to choose my own hours (Self-paced).<br />
+                    <input type="radio" name="q8" value="B" /> B. I prefer a fixed schedule made for me (Structured).<br />
+                </div>
+
+                <div class="question">
+                    <label>9. When picking a course, what do you look at first?</label><br />
+                    <input type="radio" name="q9" value="A" /> A. The subjects and if they interest me.<br />
+                    <input type="radio" name="q9" value="B" /> B. The employment rate and starting salary.<br />
+                </div>
+
+                <div class="question">
+                    <label>10. How do you want to be remembered?</label><br />
+                    <input type="radio" name="q10" value="A" /> A. "They built things that lasted."<br />
+                    <input type="radio" name="q10" value="B" /> B. "They changed lives for the better."<br />
+                    <input type="radio" name="q10" value="C" /> C. "They created a successful empire."<br />
+                    <input type="radio" name="q10" value="D" /> D. "They made the world more beautiful."<br />
                 </div>
 
                 <button type="button" onclick="gradeQuiz()">See Results</button>
