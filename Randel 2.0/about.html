@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About STEM Compass</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .about-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 900px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .about-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s ease;
+        }
+
+        .about-section h3 {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 1rem;
+            margin-top: 2rem;
+        }
+
+        .about-section h3:first-child {
+            margin-top: 0;
+        }
+
+        .about-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .about-section li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            margin-bottom: 0.8rem;
+        }
+
+        .about-section li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="assets/Logo.jpg" alt="STEM Compass Logo" class="logo" />
+            <h1>STEM Compass</h1>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="portal.html">Courses</a>
+            <a href="chatbot.html">Chatbot</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>About STEM Compass</h2>
+        <p>Your Guide to a Successful STEM Journey</p>
+    </div>
+
+    <main>
+        <section class="about-section">
+            <h3>Introduction</h3>
+            <p>
+                <span class="highlight">STEM Compass: Track Your Next Steps</span> is a website designed to help STEM students ensure that they have chosen the right strand and to guide them in the college course they plan to pursue. Our core mission is to provide a clear and accessible digital website platform that aims to provide information about possible career paths and opportunities available for the future of STEM students.
+            </p>
+            <p>
+                The primary problem to be solved is the current lack of direction and decision-making among students, which often leads to a disconnect between their chosen strand and their actual career goals. This website will be helpful to students—especially to Grade 10 and Senior High School students—as they will have an idea on what they really want to do, gain better opportunities, confidence, and clarity in making informed decisions about their academic and professional future.
+            </p>
+            <p>
+                Students who lack a "compass" will be given clear direction so that we can prevent them from wasting time, effort, and money on courses that do not fit them and instead help them find the most suitable one for them.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h3>Our Main Objectives</h3>
+            <ul>
+                <li>To provide comprehensive information about STEM courses</li>
+                <li>To present possible career paths and opportunities</li>
+                <li>To reduce students' confusion in decision-making</li>
+                <li>To provide accurate and updated information about STEM strands and college degree programs</li>
+                <li>To explain the skills, qualifications, and requirements needed for different careers</li>
+                <li>To help students identify their interests, strengths, and abilities</li>
+                <li>To include simple assessment or guide questions to support decision-making</li>
+                <li>To reduce confusion and indecisiveness among Grade 10 and Senior High School students</li>
+                <li>To promote informed and responsible academic planning</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h3>Purpose</h3>
+            <p>
+                The purpose of this project is to help students make informed and confident decisions about their academic strand and future courses as some students face a real and growing issue: the lack of direction and vision when choosing a strand and college course, which may eventually lead them to changing their chosen courses in the future and wasting time, money, and resources if they fail to pick the most suitable course for them.
+            </p>
+            <p>
+                This website is designed to eliminate confusion and provide clarity by offering organized and reliable information. <span class="highlight">STEM Compass</span> aims to solve this problem by serving as a "compass" that guides students toward a customized personal academic career path that is suited to your interests, attributes, and traits. It provides clear, accessible, and reliable information about STEM strands, college courses, different fields of STEM, and possible career opportunities. Through this website, students can gain clarity, confidence, and better understanding of their strengths and interests before making important decisions about their future.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h3>What We Offer</h3>
+            <p>
+                This website is an informative and guidance-based platform created to support aspiring students, particularly Grade 10 and Senior High School learners, in making informed decisions about choosing the STEM strand. It is designed to help students understand whether STEM aligns with their interests, skills, and future goals by providing accurate, accessible, and well-organized information.
+            </p>
+            <p>
+                The platform offers:
+            </p>
+            <ul>
+                <li>Detailed descriptions of STEM-related subjects and fields</li>
+                <li>Information about possible college courses</li>
+                <li>Corresponding career opportunities for each field</li>
+                <li>Interest surveys and skill assessments</li>
+                <li>Decision-making tools and guidance materials</li>
+                <li>Interactive questionnaires and comparison features</li>
+                <li>Resources to help you reflect on your strengths and preferences</li>
+            </ul>
+            <p>
+                By serving as a digital compass, the website aims to reduce confusion and uncertainty among students and help them feel more confident and prepared in choosing the right strand and future career path. The project will be continuously developed, tested, and improved based on user feedback to ensure its effectiveness, reliability, and usefulness in guiding students toward better academic and career choices.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h3>Our Support</h3>
+            <p>
+                This project does not require direct financial support. Instead, we need dedicated manpower in running the website and reliable internet connectivity to ensure continuous operation and accessibility for all users.
+            </p>
+            <p>
+                We are committed to maintaining and improving this platform to serve STEM students in the Philippines and beyond, helping them navigate their academic journey with confidence and clarity.
+            </p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Add animation to about sections
+        function revealSections() {
+            const sections = document.querySelectorAll('.about-section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.9) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealSections);
+        window.addEventListener('load', revealSections);
+    </script>
+</body>
+</html>

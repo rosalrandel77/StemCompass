@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STEM Chatbot - STEM Compass</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .chatbot-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .chat-box {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 0.8rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 1rem;
+            border-radius: 12px;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px 4px 12px 12px;
+        }
+
+        .message.bot .message-content {
+            background: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            border: 1px solid var(--glass-border);
+            border-radius: 4px 12px 12px 12px;
+        }
+
+        .message.error .message-content {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #ef4444;
+            color: #fca5a5;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .user .avatar {
+            background: var(--primary);
+            color: white;
+        }
+
+        .bot .avatar {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .error .avatar {
+            background: #ef4444;
+            color: white;
+        }
+
+        .input-area {
+            padding: 1.5rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .input-area input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            color: white;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-area input:focus {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .input-area button {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .input-area button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .input-area button:active {
+            transform: translateY(0);
+        }
+
+        .info-box {
+            background: rgba(14, 165, 233, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        /* Scrollbar styling */
+        .chat-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-box::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="assets/Logo.jpg" alt="STEM Compass Logo" class="logo" />
+            <h1>STEM Compass</h1>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="portal.html">Courses</a>
+            <a href="chatbot.html">Chatbot</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>STEM Chatbot Assistant</h2>
+        <p>Ask me anything about STEM, careers, courses, and more!</p>
+    </div>
+
+    <main>
+        <div class="chatbot-container">
+            <div class="chat-box" id="chatBox">
+                <div class="info-box">
+                    <p>👋 Hi! I'm your STEM Compass Chatbot. I can help answer questions about STEM fields, courses, careers, and more. Ask me anything!</p>
+                </div>
+            </div>
+            <div class="input-area">
+                <input type="text" id="userInput" placeholder="Ask me about STEM, courses, careers..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Bad words filter (English and Tagalog profanity)
+        const badWords = [
+            'putang ina', 'putang-ina', 'puta', 'bobo', 'tanga', 'gago', 'hayop', 'walang kwenta',
+            'fuck', 'shit', 'bitch', 'asshole', 'bastard', 'damn', 'hell', 'crap', 'piss',
+            'dick', 'cock', 'pussy', 'whore', 'slut', 'douchebag', 'motherfucker', 'goddamn',
+            'fucking', 'shitty', 'bitching', 'bullshit', 'horseshit', 'apeshit', 'batshit',
+            'cocksucker', 'dipshit', 'fuckface', 'fuckhead', 'fucker', 'fuckwit', 'shitface',
+            'shithead', 'asshat', 'dumbass', 'jackass', 'smartass', 'wiseguy', 'smarty'
+        ];
+
+        // STEM Knowledge Base
+        const stemKnowledge = {
+            'what is stem': {
+                answer: 'STEM stands for Science, Technology, Engineering, and Mathematics. It represents fields that use systematic thinking, experimentation, and problem-solving to drive innovation and solve real-world challenges.',
+                keywords: ['stem', 'definition', 'what']
+            },
+            'stem fields': {
+                answer: 'Main STEM fields include: Science (Biology, Chemistry, Physics), Technology (IT, Software Development), Engineering (Civil, Mechanical, Electrical), and Mathematics (Data Science, Statistics). Each offers diverse career opportunities.',
+                keywords: ['fields', 'branches', 'categories', 'types']
+            },
+            'why choose stem': {
+                answer: 'STEM offers excellent career prospects, high earning potential, and the opportunity to solve real-world problems. STEM professionals are in high demand across industries like healthcare, technology, construction, and research.',
+                keywords: ['why', 'benefits', 'advantages', 'reasons']
+            },
+            'stem careers': {
+                answer: 'Popular STEM careers include: Software Developer, Data Scientist, Mechanical Engineer, Nurse, Doctor, Pharmacist, Architect, Civil Engineer, and many more. The field offers diverse opportunities across multiple industries.',
+                keywords: ['careers', 'jobs', 'opportunities', 'profession']
+            },
+            'engineering': {
+                answer: 'Engineering involves designing and building structures, machines, and systems. Types include Civil Engineering (infrastructure), Mechanical Engineering (machines), Electrical Engineering (power systems), and Chemical Engineering (industrial processes).',
+                keywords: ['engineer', 'engineering', 'design', 'build']
+            },
+            'computer science': {
+                answer: 'Computer Science encompasses programming, algorithms, data structures, artificial intelligence, and databases. CS professionals develop software, apps, and solutions for various industries.',
+                keywords: ['computer', 'programming', 'coding', 'software', 'it']
+            },
+            'biology': {
+                answer: 'Biology is the study of living organisms and life processes. It includes fields like Marine Biology, Genetics, Microbiology, and Biochemistry. Biologists work in healthcare, research, and environmental sectors.',
+                keywords: ['biology', 'organisms', 'life', 'living']
+            },
+            'chemistry': {
+                answer: 'Chemistry studies matter and reactions. Chemists work in pharmaceuticals, manufacturing, research, and environmental protection. It\'s crucial for developing medicines, materials, and sustainable solutions.',
+                keywords: ['chemistry', 'chemical', 'reactions', 'matter']
+            },
+            'physics': {
+                answer: 'Physics studies matter, energy, and forces. It leads to careers in telecommunications, renewable energy, aerospace, and research. Physics principles underlie most technological innovations.',
+                keywords: ['physics', 'force', 'energy', 'matter']
+            },
+            'data science': {
+                answer: 'Data Science combines statistics, programming, and domain expertise to extract insights from data. Data Scientists are highly sought after in tech, finance, healthcare, and other industries.',
+                keywords: ['data', 'analytics', 'analysis', 'data science']
+            },
+            'nursing': {
+                answer: 'Nursing is a healthcare profession focused on patient care and wellbeing. Nurses work in hospitals, clinics, and community health. It\'s a rewarding career with strong job security and growth potential.',
+                keywords: ['nurse', 'nursing', 'healthcare', 'medical']
+            },
+            'college': {
+                answer: 'Visit our Courses page to explore various STEM college programs. Each course includes salary information, required skills, and career opportunities to help you make an informed decision.',
+                keywords: ['college', 'university', 'major', 'degree', 'program']
+            },
+            'quiz': {
+                answer: 'Take our STEM Interest Quiz to assess your fit for STEM fields. The quiz asks about your problem-solving skills, curiosity, and preferences to help guide your decision.',
+                keywords: ['quiz', 'test', 'assessment', 'interest']
+            },
+            'salary': {
+                answer: 'STEM careers generally offer competitive salaries. Data Scientists and Software Engineers earn ₱60,000-₱85,000+, Engineers ₱45,000-₱55,000+, and Healthcare professionals ₱35,000-₱80,000+. Salaries vary by experience and location.',
+                keywords: ['salary', 'pay', 'income', 'earnings', 'wage']
+            },
+            'skills': {
+                answer: 'Important STEM skills include: Problem-solving, Critical thinking, Communication, Teamwork, Attention to detail, Mathematical reasoning, and Technical proficiency. Soft skills are equally important as hard skills.',
+                keywords: ['skills', 'ability', 'competence', 'talent']
+            }
+        };
+
+        // Function to check for bad words
+        function containsBadWords(text) {
+            const lowerText = text.toLowerCase();
+            for (let badWord of badWords) {
+                if (lowerText.includes(badWord)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Function to find matching answer
+        function getResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase().trim();
+            
+            // Check for bad words first
+            if (containsBadWords(userMessage)) {
+                return {
+                    type: 'error',
+                    text: 'I appreciate your question, but I cannot respond to messages containing inappropriate language. Please rephrase your question respectfully.'
+                };
+            }
+
+            // Check for exact or partial matches
+            for (let key in stemKnowledge) {
+                const kb = stemKnowledge[key];
+                
+                // Check main key
+                if (lowerMessage.includes(key)) {
+                    return { type: 'bot', text: kb.answer };
+                }
+                
+                // Check keywords
+                for (let keyword of kb.keywords) {
+                    if (lowerMessage.includes(keyword)) {
+                        return { type: 'bot', text: kb.answer };
+                    }
+                }
+            }
+
+            // Default response if no match
+            return {
+                type: 'bot',
+                text: 'Please specify what you need so I can help. You can ask using keywords such as "STEM", "fields", "careers", "engineering", "computer science", "biology", "chemistry", "physics", "data science", "nursing", "college", "quiz", "salary", or "skills". For example: "What is STEM?", "Tell me about STEM careers", or "What skills are needed for engineering?"'
+            };
+        }
+
+        // Function to display message
+        function displayMessage(message, type) {
+            const chatBox = document.getElementById('chatBox');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar';
+            avatar.textContent = type === 'user' ? 'You' : 'Bot';
+            
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.textContent = message;
+            
+            if (type === 'user') {
+                messageDiv.appendChild(content);
+                messageDiv.appendChild(avatar);
+            } else {
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(content);
+            }
+            
+            if (type === 'error') {
+                messageDiv.className = 'message error';
+            }
+            
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Function to send message
+        function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Display user message
+            displayMessage(message, 'user');
+            input.value = '';
+            
+            // Get and display bot response
+            setTimeout(() => {
+                const response = getResponse(message);
+                displayMessage(response.text, response.type);
+            }, 300);
+        }
+
+        // Allow sending with Enter key
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Focus on input on page load
+        window.addEventListener('load', function() {
+            document.getElementById('userInput').focus();
+        });
+    </script>
+    <!-- include global script for hamburger/menu animation etc. -->
+    <script src="script.js"></script>
+</body>
+</html>

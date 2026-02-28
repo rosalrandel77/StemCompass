@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STEM Interest Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="assets/Logo.jpg" alt="STEM Compass Logo" class="logo" />
+            <h1>STEM Compass</h1>
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="portal.html">Courses</a>
+            <a href="chatbot.html">Chatbot</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-section" id="quiz-section">
+            <h2>Do You Really Want STEM?</h2>
+            <form id="stemQuiz">
+                <div class="question">
+                    <label>1. Do you enjoy solving puzzles or problems?</label><br />
+                    <input type="radio" name="q1" value="yes" /> Yes<br />
+                    <input type="radio" name="q1" value="no" /> No<br />
+                </div>
+
+                <div class="question">
+                    <label>2. Are you curious about how things work?</label><br />
+                    <input type="radio" name="q2" value="yes" /> Yes<br />
+                    <input type="radio" name="q2" value="no" /> No<br />
+                </div>
+
+                <div class="question">
+                    <label>3. Would you rather experiment than memorize?</label><br />
+                    <input type="radio" name="q3" value="yes" /> Yes<br />
+                    <input type="radio" name="q3" value="no" /> No<br />
+                </div>
+
+                <button type="button" onclick="gradeQuiz()">See Results</button>
+            </form>
+            <p id="result"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
