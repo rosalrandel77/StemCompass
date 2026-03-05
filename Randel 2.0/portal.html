@@ -134,8 +134,35 @@
         footer { text-align: center; padding: 3rem; border-top: 1px solid var(--glass-border); color: #64748b; }
     </style>
 </head>
-<body>
 
+ 
+<body>
+  <!-- REMOVE THIS IF NOT WORKING OK? -->
+<div id="courseModal" class="modal">
+    <div class="modal-content">
+
+        <span class="close-btn">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+
+        <h3>What is this course?</h3>
+        <p id="modalDesc"></p>
+
+        <h3>What jobs do they do?</h3>
+        <p id="modalJob"></p>
+
+        <h3>Salary</h3>
+        <p><strong>Entry Level:</strong> <span id="modalSalaryEntry"></span></p>
+        <p><strong>Experienced:</strong> <span id="modalSalaryExp"></span></p>
+
+        <h3>Workplaces</h3>
+        <p id="modalWork"></p>
+
+        <h3>Personality Traits</h3>
+        <p id="modalTraits"></p>
+
+    </div>
+</div>
     <header>
         <div class="header-content">
             <img src="assets/logo.jpg" alt="STEM Compass Logo" class="logo" />
@@ -163,92 +190,217 @@
 </div>
 
 <section>
-    <div class="filter-buttons">
-        <button class="active" onclick="filterCourses('all', this)">🌐 All</button>
-        <button onclick="filterCourses('A', this)">🛠 STEM &amp; Sciences</button>
-        <button onclick="filterCourses('B', this)">🧠 People &amp; Health</button>
-        <button onclick="filterCourses('C', this)">💼 Business &amp; Management</button>
-        <button onclick="filterCourses('D', this)">🎨 Arts &amp; Media</button>
-    </div>
+ 
 
     <div class="grid" id="courseGrid">
-        <!-- Group A courses -->
-        <div class="card" data-category="A" data-title="Engineering" data-desc="Study of designing and building structures, machines, and systems." data-strand="STEM" data-salary="₱30,000" data-skills="Problem-Solving,Analytical" data-color="#0ea5e9">
-            <h3>Engineering</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱30,000</p>
-        </div>
-        <div class="card" data-category="A" data-title="IT" data-desc="Information technology and computing systems." data-strand="STEM" data-salary="₱28,000" data-skills="Coding,Logic" data-color="#6366f1">
-            <h3>Information Technology</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱28,000</p>
-        </div>
-        <div class="card" data-category="A" data-title="Computer Science" data-desc="Study of computation, algorithms, and software." data-strand="STEM" data-salary="₱30,000" data-skills="Coding,Research" data-color="#6366f1">
-            <h3>Computer Science</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱30,000</p>
-        </div>
-        <div class="card" data-category="A" data-title="Architecture" data-desc="Design of buildings and urban environments." data-strand="STEM" data-salary="₱25,000" data-skills="Creativity,Math" data-color="#f59e0b">
-            <h3>Architecture</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱25,000</p>
-        </div>
-        <div class="card" data-category="A" data-title="Pure Sciences" data-desc="Fields like physics, chemistry, and biology." data-strand="STEM" data-salary="₱22,000" data-skills="Research,Analysis" data-color="#6366f1">
-            <h3>Pure Sciences</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱22,000</p>
-        </div>
-        <!-- Group B courses -->
-        <div class="card" data-category="B" data-title="Psychology" data-desc="Study of the mind and behavior." data-strand="STEM" data-salary="₱20,000" data-skills="Empathy,Analysis" data-color="#10b981">
-            <h3>Psychology</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱20,000</p>
-        </div>
-        <div class="card" data-category="B" data-title="Education" data-desc="Training to become a teacher or educator." data-strand="STEM" data-salary="₱18,000" data-skills="Communication,Patience" data-color="#10b981">
-            <h3>Education</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱18,000</p>
-        </div>
-        <div class="card" data-category="B" data-title="Nursing" data-desc="Healthcare career focused on patient care." data-strand="STEM" data-salary="₱25,000" data-skills="Empathy,Biology" data-color="#10b981">
-            <h3>Nursing</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱25,000</p>
-        </div>
-        <div class="card" data-category="B" data-title="Law" data-desc="Study of legal systems and justice." data-strand="STEM" data-salary="₱28,000" data-skills="Critical Thinking,Research" data-color="#0ea5e9">
-            <h3>Law</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱28,000</p>
-        </div>
-        <div class="card" data-category="B" data-title="Social Work" data-desc="Supporting individuals and communities." data-strand="STEM" data-salary="₱18,000" data-skills="Empathy,Advocacy" data-color="#10b981">
-            <h3>Social Work</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱18,000</p>
-        </div>
-        <!-- Group C courses -->
-        <div class="card" data-category="C" data-title="Business Admin" data-desc="Management of business operations." data-strand="STEM" data-salary="₱26,000" data-skills="Leadership,Strategy" data-color="#f59e0b">
-            <h3>Business Administration</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱26,000</p>
-        </div>
-        <div class="card" data-category="C" data-title="Accountancy" data-desc="Study of financial record keeping." data-strand="STEM" data-salary="₱24,000" data-skills="Detail,Math" data-color="#f59e0b">
-            <h3>Accountancy</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱24,000</p>
-        </div>
-        <div class="card" data-category="C" data-title="Marketing" data-desc="Promotion and selling of products." data-strand="STEM" data-salary="₱23,000" data-skills="Communication,Creativity" data-color="#f59e0b">
-            <h3>Marketing</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱23,000</p>
-        </div>
-        <div class="card" data-category="C" data-title="Hospitality Management" data-desc="Managing hotels and service industries." data-strand="STEM" data-salary="₱20,000" data-skills="Customer Service,Organization" data-color="#f59e0b">
-            <h3>Hospitality Management</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱20,000</p>
-        </div>
-        <!-- Group D courses -->
-        <div class="card" data-category="D" data-title="Fine Arts" data-desc="Visual and performing arts." data-strand="STEM" data-salary="₱18,000" data-skills="Creativity,Expression" data-color="#f59e0b">
-            <h3>Fine Arts</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱18,000</p>
-        </div>
-        <div class="card" data-category="D" data-title="Multimedia Arts" data-desc="Digital media and design." data-strand="STEM" data-salary="₱22,000" data-skills="Design,Technology" data-color="#f59e0b">
-            <h3>Multimedia Arts</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱22,000</p>
-        </div>
-        <div class="card" data-category="D" data-title="Communication" data-desc="Study of media and messaging." data-strand="STEM" data-salary="₱21,000" data-skills="Writing,Speaking" data-color="#f59e0b">
-            <h3>Communication</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱21,000</p>
-        </div>
-        <div class="card" data-category="D" data-title="Fashion Design" data-desc="Creating clothing and accessories." data-strand="STEM" data-salary="₱19,000" data-skills="Creativity,Trend Awareness" data-color="#f59e0b">
-            <h3>Fashion Design</h3>
-            <p style="margin: 0.5rem 0; font-size: 0.9rem; color: #cbd5e1;">Average Salary: ₱19,000</p>
-        </div>
-        </div>
+    
+       <!-- Group A courses -->
+<!-- Engineering -->
+<div class="card"
+data-title="Engineering"
+data-about="Engineering is the field that uses science and mathematics to design, build, and improve structures, machines, and systems that solve real-world problems."
+data-desc="Engineers design bridges, buildings, machines, software, and technologies. They analyze problems, create solutions, and test designs to ensure safety and efficiency."
+data-salary-entry="₱20,000 – ₱40,000/month"
+data-salary-exp="₱50,000 – ₱100,000+/month"
+data-workplaces="Construction companies, Technology companies, Manufacturing industries, Government infrastructure projects, Research institutions"
+data-traits="Logical thinker, Problem solver, Curious about how things work, Enjoys math and science">
+
+<h3>Engineering</h3>
+<p>Engineering uses science and mathematics to design machines, structures, and technologies.</p>
+
+</div>
+
+     
+    <!-- IT -->
+<div class="card"
+data-title="Information Technology"
+data-about="Information Technology focuses on managing computer systems, networks, and software used in organizations."
+data-desc="IT professionals maintain computer networks, develop systems, secure data, and support technological infrastructure."
+data-salary-entry="₱25,000 – ₱35,000/month"
+data-salary-exp="₱45,000 – ₱90,000+/month"
+data-workplaces="Technology companies, Corporate offices, Government agencies, IT consulting firms"
+data-traits="Logical thinker, Problem solver, Tech-savvy, Analytical">
+
+<h3>Information Technology</h3>
+<p>Focuses on computer systems, networks, and software.</p>
+
+</div>
+
+
+<!-- Computer Science -->
+<div class="card"
+data-title="Computer Science"
+data-about="Computer Science studies algorithms, programming, and software development."
+data-desc="Computer scientists design software, develop algorithms, build applications, and solve complex computational problems."
+data-salary-entry="₱28,000 – ₱40,000/month"
+data-salary-exp="₱50,000 – ₱120,000+/month"
+data-workplaces="Software companies, Technology startups, Research labs, Data science firms"
+data-traits="Logical thinker, Problem solver, Analytical mind, Loves coding">
+
+<h3>Computer Science</h3>
+<p>Study of programming, algorithms, and computing systems.</p>
+
+</div>
+
+
+<!-- Architecture -->
+<div class="card"
+data-title="Architecture"
+data-about="Architecture focuses on designing buildings, structures, and physical environments."
+data-desc="Architects create building plans, design structures, and ensure safety and functionality of spaces."
+data-salary-entry="₱22,000 – ₱35,000/month"
+data-salary-exp="₱45,000 – ₱90,000+/month"
+data-workplaces="Architecture firms, Construction companies, Real estate development firms"
+data-traits="Creative thinker, Detail oriented, Good in math, Strong visualization skills">
+
+<h3>Architecture</h3>
+<p>Design of buildings and urban environments.</p>
+
+</div>
+
+
+<!-- Pure Sciences -->
+<div class="card"
+data-title="Pure Sciences"
+data-about="Pure Sciences study natural phenomena through research in physics, chemistry, and biology."
+data-desc="Scientists conduct research, perform experiments, and develop theories to understand the natural world."
+data-salary-entry="₱20,000 – ₱30,000/month"
+data-salary-exp="₱40,000 – ₱80,000+/month"
+data-workplaces="Research institutions, Universities, Laboratories, Government science agencies"
+data-traits="Curious, Analytical thinker, Loves experiments, Detail oriented">
+
+<h3>Pure Sciences</h3>
+<p>Fields like physics, chemistry, and biology.</p>
+
+</div>
+
+
+<!-- Psychology -->
+<div class="card"
+data-title="Psychology"
+data-about="Psychology studies human behavior, emotions, and mental processes."
+data-desc="Psychologists assess behavior, conduct therapy, and research human cognition and emotional patterns."
+data-salary-entry="₱18,000 – ₱28,000/month"
+data-salary-exp="₱40,000 – ₱80,000+/month"
+data-workplaces="Hospitals, Counseling centers, Schools, Research institutions"
+data-traits="Empathetic, Good listener, Observant, Analytical">
+
+<h3>Psychology</h3>
+<p>Study of human behavior and mental processes.</p>
+
+</div>
+
+
+<!-- Education -->
+<div class="card"
+data-title="Education"
+data-about="Education focuses on teaching methods, learning systems, and academic development."
+data-desc="Educators teach students, develop learning materials, and help learners build knowledge and skills."
+data-salary-entry="₱18,000 – ₱25,000/month"
+data-salary-exp="₱35,000 – ₱60,000+/month"
+data-workplaces="Schools, Universities, Training centers, Educational organizations"
+data-traits="Patient, Communicative, Organized, Passion for teaching">
+
+<h3>Education</h3>
+<p>Training to become a teacher or educator.</p>
+
+</div>
+
+
+<!-- Nursing -->
+<div class="card"
+data-title="Nursing"
+data-about="Nursing focuses on healthcare and patient care in hospitals and medical facilities."
+data-desc="Nurses assist doctors, care for patients, administer medications, and monitor health conditions."
+data-salary-entry="₱22,000 – ₱35,000/month"
+data-salary-exp="₱45,000 – ₱90,000+/month"
+data-workplaces="Hospitals, Clinics, Healthcare centers, International hospitals"
+data-traits="Compassionate, Responsible, Patient, Strong communication skills">
+
+<h3>Nursing</h3>
+<p>Healthcare career focused on patient care.</p>
+
+</div>
+
+
+<!-- Law -->
+<div class="card"
+data-title="Law"
+data-about="Law studies legal systems, justice, and the rules that govern society."
+data-desc="Lawyers represent clients, provide legal advice, and defend cases in court."
+data-salary-entry="₱25,000 – ₱40,000/month"
+data-salary-exp="₱60,000 – ₱150,000+/month"
+data-workplaces="Law firms, Government courts, Legal departments, Corporate offices"
+data-traits="Critical thinker, Persuasive speaker, Analytical, Detail oriented">
+
+<h3>Law</h3>
+<p>Study of legal systems and justice.</p>
+
+</div>
+
+
+<!-- Business Administration -->
+<div class="card"
+data-title="Business Administration"
+data-about="Business Administration focuses on managing business operations and organizational leadership."
+data-desc="Business managers plan strategies, manage employees, and oversee company operations."
+data-salary-entry="₱24,000 – ₱35,000/month"
+data-salary-exp="₱45,000 – ₱100,000+/month"
+data-workplaces="Corporations, Startups, Government offices, Business firms"
+data-traits="Leadership, Strategic thinker, Organized, Decision maker">
+
+<h3>Business Administration</h3>
+<p>Management of business operations.</p>
+
+</div>
+
+
+<!-- Accountancy -->
+<div class="card"
+data-title="Accountancy"
+data-about="Accountancy focuses on financial management, auditing, and business accounting."
+data-desc="Accountants manage financial records, analyze budgets, and ensure financial accuracy."
+data-salary-entry="₱22,000 – ₱35,000/month"
+data-salary-exp="₱50,000 – ₱100,000+/month"
+data-workplaces="Accounting firms, Banks, Corporations, Government finance offices"
+data-traits="Detail oriented, Analytical thinker, Organized, Good with numbers">
+
+<h3>Accountancy</h3>
+<p>Study of financial record keeping.</p>
+
+</div>
+
+
+<!-- Marketing -->
+<div class="card"
+data-title="Marketing"
+data-about="Marketing focuses on promoting products, services, and brands to customers."
+data-desc="Marketing professionals create campaigns, analyze markets, and promote business products."
+data-salary-entry="₱20,000 – ₱30,000/month"
+data-salary-exp="₱40,000 – ₱80,000+/month"
+data-workplaces="Advertising agencies, Corporations, Media companies, Marketing firms"
+data-traits="Creative thinker, Communicative, Strategic planner, Innovative">
+
+<h3>Marketing</h3>
+<p>Promotion and selling of products.</p>
+
+</div>
+
+
+<!-- Multimedia Arts -->
+<div class="card"
+data-title="Multimedia Arts"
+data-about="Multimedia Arts focuses on digital design, animation, and visual media."
+data-desc="Multimedia artists create digital graphics, animations, videos, and interactive content."
+data-salary-entry="₱20,000 – ₱30,000/month"
+data-salary-exp="₱40,000 – ₱80,000+/month"
+data-workplaces="Design studios, Media companies, Advertising agencies, Game studios"
+data-traits="Creative, Tech-savvy, Artistic, Innovative">
+
+<h3>Multimedia Arts</h3>
+<p>Digital media, animation, and visual design.</p>
+
+</div>
 </section>
 
 <div id="courseModal" class="modal">
@@ -342,5 +494,11 @@
 </script>
     <!-- common behaviors (animations, hamburger toggle, quiz math etc.) -->
     <script src="script.js"></script>
+
+
+
+  
+
+
 </body>
 </html>

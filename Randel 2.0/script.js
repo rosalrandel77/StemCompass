@@ -13,18 +13,19 @@ function onScroll() {
 window.addEventListener('scroll', onScroll);
 window.addEventListener('load', onScroll);
 
-// toggle hamburger menu
 function toggleMenu() {
     const nav = document.querySelector('header nav');
-    nav.classList.toggle('collapsed');
+    nav.classList.toggle('active');
 }
 
-// close menu when clicking outside (optional)
 document.addEventListener('click', function(e) {
     const nav = document.querySelector('header nav');
     const hamburger = document.querySelector('.hamburger');
-    if (hamburger && !hamburger.contains(e.target) && !nav.contains(e.target)) {
-        nav.classList.add('collapsed');
+
+    if (window.innerWidth <= 768) {
+        if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+            nav.classList.remove('active');
+        }
     }
 });
 
@@ -59,32 +60,67 @@ function gradeQuiz() {
         }
     }
 
-    let message = '';
-    if (winners.length > 1) {
-        message =
-            'You have tied interests: ' +
-            winners.join(', ') +
-            '. Explore those fields!';
-    } else {
-        switch (winners[0]) {
-            case 'A':
-                message =
-                    'Suggested fields: Engineering, IT, Computer Science, Architecture, Pure Sciences';
-                break;
-            case 'B':
-                message =
-                    'Suggested fields: Psychology, Education, Nursing, Law, Social Work';
-                break;
-            case 'C':
-                message =
-                    'Suggested fields: Business Admin, Accountancy, Marketing, Hospitality Management';
-                break;
-            case 'D':
-                message =
-                    'Suggested fields: Fine Arts, Multimedia Arts, Communication, Fashion Design';
-                break;
-        }
-    }
+let message = '';
 
-    document.getElementById('result').textContent = message;
+const suggestions = {
+    A: 'Engineering, IT, Computer Science, Architecture, Pure Sciences',
+    B: 'Psychology, Education, Nursing, Law, Social Work',
+    C: 'Business Admin, Accountancy, Marketing, Hospitality Management',
+    D: 'Fine Arts, Multimedia Arts, Communication, Fashion Design'
+};
+
+if (winners.length > 1) {
+    message = 'You have multiple strong interests:<br><br>';
+
+    winners.forEach(letter => {
+        message += `<strong>${letter}:</strong> Suggested fields: ${suggestions[letter]}<br><br>`;
+    });
+
+} else {
+    const win = winners[0];
+    message = `Suggested fields: ${suggestions[win]}`;
+}
+
+document.getElementById('result').innerHTML = message;
+}
+
+
+/* COURSE CARD CLICK SYSTEM */
+
+const cards = document.querySelectorAll(".card");
+const modal = document.getElementById("courseModal");
+const closeBtn = document.querySelector(".close-btn");
+
+cards.forEach(card => {
+
+card.addEventListener("click", () => {
+
+document.getElementById("modalTitle").innerText = card.dataset.title;
+
+document.getElementById("modalDesc").innerText = card.dataset.about;
+
+document.getElementById("modalJob").innerText = card.dataset.desc;
+
+document.getElementById("modalSalaryEntry").innerText = card.dataset.salaryEntry;
+
+document.getElementById("modalSalaryExp").innerText = card.dataset.salaryExp;
+
+document.getElementById("modalWork").innerText = card.dataset.workplaces;
+
+document.getElementById("modalTraits").innerText = card.dataset.traits;
+
+modal.style.display = "flex";
+
+});
+
+});
+
+closeBtn.onclick = function(){
+modal.style.display = "none";
+}
+
+window.onclick = function(event){
+if(event.target == modal){
+modal.style.display = "none";
+}
 }
