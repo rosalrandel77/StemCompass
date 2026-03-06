@@ -1,0 +1,60 @@
+# Vercel Web Analytics Implementation
+
+## Summary
+Successfully implemented Vercel Web Analytics on the STEM Compass website. The analytics script has been added to all HTML pages to enable visitor tracking and page view analytics.
+
+## Changes Made
+
+### Modified Files:
+1. **index.html** - Added Vercel Web Analytics script
+2. **about.html** - Added Vercel Web Analytics script
+3. **quiz.html** - Added Vercel Web Analytics script
+4. **portal.html** - Added Vercel Web Analytics script
+5. **chatbot.html** - Added Vercel Web Analytics script
+
+## Implementation Details
+
+The implementation follows the Vercel Web Analytics guide for plain HTML sites. The following script was added to the `<head>` section of each HTML file, just before the closing `</head>` tag:
+
+```html
+<script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+```
+
+### Why This Approach?
+
+Since this is a plain HTML website (not using frameworks like Next.js, React, or Vue), the HTML implementation was the appropriate choice as specified in the Vercel Web Analytics documentation. This approach:
+
+- Does not require installing the `@vercel/analytics` package
+- Works immediately once the site is deployed to Vercel
+- Automatically tracks page views across all pages
+- Loads the analytics script asynchronously with the `defer` attribute to avoid blocking page rendering
+
+## Next Steps
+
+After deploying to Vercel:
+
+1. **Enable Web Analytics** in the Vercel dashboard:
+   - Go to your project in the Vercel dashboard
+   - Click the **Analytics** tab
+   - Click **Enable** to activate Web Analytics
+
+2. **Verify Installation**:
+   - Once deployed, visit any page of the site
+   - Open browser DevTools > Network tab
+   - Look for a request to `/_vercel/insights/view`
+   - If you see this request, analytics is working correctly
+
+3. **View Analytics Data**:
+   - Return to the Vercel dashboard after a few visits
+   - Click the **Analytics** tab to view visitor data
+   - Filter and analyze page views, visitor counts, and more
+
+## Notes
+
+- No package manager dependencies needed for this implementation
+- Analytics will only work when deployed to Vercel (not in local development)
+- The `/_vercel/insights/*` routes will be automatically created by Vercel upon deployment
+- Privacy-compliant: Vercel Web Analytics does not use cookies and respects user privacy
